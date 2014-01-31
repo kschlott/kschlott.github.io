@@ -17,6 +17,11 @@
 
      .header {
        margin-top: 1em;
+       z-index:99998;
+     }
+
+     .header * {
+       z-index:99999;
      }
 
      #logo img {
@@ -36,47 +41,76 @@
        $("#context-btn").click(function() {
          $("#infographic").show("blind", {}, 3000);
        });
+
+       // get initial top offset of navigation
+       var floating_navigation_offset_top = $('#header').offset().top;
+
+       // define the floating navigation function
+       var floating_navigation = function(){
+         // current vertical position from the top
+         var scroll_top = $(window).scrollTop();
+
+         // if scrolled more than the navigation, change its
+         // position to fixed to float to top, otherwise change
+         // it back to relative
+         if (scroll_top > floating_navigation_offset_top) {
+           $('#header').css({ position: 'fixed', top: 0});
+         } else {
+           $('#header').css({ position: 'relative' });
+         }
+       };
+
+       // run function on load
+       floating_navigation();
+
+       // run function every time you scroll
+       $(window).scroll(function() {
+         floating_navigation();
+       });
+
      });
     </script>
   </head>
   <body>
     <div class="container">
-      <div class="row header">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-          <div class="col-md-4 col-md-offset-3" id="logo">
-            <img src="images/logo.png" />
-          </div>
-        </nav>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4 col-md-offset-2">
-          <h2>UI/UX Design</h2>
-
-          <ul class="links">
-            <li>Text 1</li>
-            <li>Text 1</li>
-            <li>Text 1</li>
-            <li>Text 1</li>
-            <li>Text 1</li>
-            <li>Text 1</li>
-            <li>Text 1</li>
-          </ul>
-
+      <div id="header">
+        <div class="row">
+          <nav>
+            <div class="col-md-4 col-md-offset-3" id="logo">
+              <img src="images/logo.png" />
+            </div>
+          </nav>
         </div>
 
-        <div class="col-md-4">
-          <h2>visual design</h2>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-2">
+            <h2>UI/UX Design</h2>
 
-          <ul class="links">
-            <li>Text 1</li>
-            <li>Text 1</li>
-            <li>Text 1</li>
-            <li>Text 1</li>
-            <li>Text 1</li>
-            <li>Text 1</li>
-            <li>Text 1</li>
-          </ul>
+            <ul class="links">
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+            </ul>
+
+          </div>
+
+          <div class="col-md-4">
+            <h2>visual design</h2>
+
+            <ul class="links">
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+            </ul>
+          </div>
         </div>
       </div>
 
