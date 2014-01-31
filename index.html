@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+
+        <script src="/js/jquery-2.1.0.min.js"></script>
+        <script src="/js/jquery-ui.js"></script>
+
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+        <style>
+
+        </style>
+        <script>
+         $(function() {
+           $("#infographic").hide();
+
+           $("#context-btn").click(function() {
+//             $("#infographic").fadeIn({ duration: 5000, easing: 'linear' }); //.show('slow');
+             $("#infographic").show("blind", {}, 3000);
+
+           });
+         });
+        </script>
+    </head>
+    <body>
+      <div class="container">
+        <header class="row">
+          Logo
+        </header>
+
+        <div class="row">
+          <div class="col-md-4 col-md-offset-2">
+            <h2>UI/UX Design</h2>
+
+            <ul class="links">
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+            </ul>
+
+          </div>
+
+          <div class="col-md-4">
+            <h2>visual design</h2>
+
+            <ul class="links">
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+              <li>Text 1</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div id="contextualize">
+            <a href="#" id="context-btn"><< Contextualize >></a>
+          </div>
+
+          <div id="infographic">
+            <img src="/images/infographic.png" alt="contexualize" />
+          </div>
+        </div>
+
+        <div class="row">
+          Whatever.
+        </div>
+      </div>
+    </body>
+</html>
